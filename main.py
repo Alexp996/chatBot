@@ -85,7 +85,6 @@ from fastapi import FastAPI, Form, Request
 from typing import Annotated
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from mangum import Mangum
 
 import os
 from dotenv import load_dotenv
@@ -96,13 +95,10 @@ openai = OpenAI(
     api_key = os.getenv('MY_OPENAI_KEY')
 )
 app = FastAPI()
-# Exemplu endpoint
 @app.get("/")
 def read_root():
     return {"message": "Hello, Vercel!"}
 
-# Handler pentru Vercel
-handler = Mangum(app)
 templates = Jinja2Templates(directory="templates")
 
 chat_responses = []
