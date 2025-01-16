@@ -1,4 +1,5 @@
 uvicorn
+python-dotenv
 openai
 fastapi
 jinja2
